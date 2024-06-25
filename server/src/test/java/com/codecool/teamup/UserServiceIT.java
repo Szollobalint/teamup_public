@@ -17,6 +17,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
 import java.util.List;
@@ -28,12 +29,8 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@TestPropertySource(properties = {
-        "spring.datasource.url=${DATABASE_URL}",
-        "spring.datasource.username=${DATABASE_USERNAME}",
-        "spring.datasource.password=${DATABASE_PASSWORD}"
-})
-public class UserServiceIntegrationTestIT {
+@ActiveProfiles("test")
+public class UserServiceIT {
 
     @Autowired
     private UserService userService;
