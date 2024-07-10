@@ -1,0 +1,44 @@
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: ${SPRING_DATASOURCE_USERNAME}
+      POSTGRES_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      POSTGRES_DB: TeamUp
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  backend:
+    image: teamup:latest
+    container_name: backend2
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: ${SPRING_DATASOURCE_URL}
+      DATABASE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      DATABASE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "8080:8080"
+    build:
+      context: server
+      dockerfile: Dockerfile
+
+  frontend:
+    image: teamup-frontend:latest
+    container_name: frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+    build:
+      context: client
+      dockerfile: Dockerfile
+
+
+
+volumes:
+  postgres_data:

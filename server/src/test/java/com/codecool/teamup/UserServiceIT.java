@@ -18,7 +18,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestPropertySource;
 
 import java.util.List;
 
@@ -71,3 +70,6 @@ public class UserServiceIT {
         assertEquals(1L, jwtResponse.id());
     }
 }
+
+
+//Object equals-t kell nézni
