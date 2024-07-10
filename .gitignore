@@ -1,0 +1,83 @@
+# Ignore IntelliJ IDEA files
+.idea/
+*.iml
+*.iws
+
+# Ignore Node.js dependencies (Frontend)
+client/node_modules/
+client/build/
+client/dist/
+
+# Ignore npm debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore React production build
+client/build/
+client/dist/
+
+# Ignore environment variables
+.env
+client/.env
+server/.env
+
+# Ignore logs
+*.log
+client/logs/
+server/logs/
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore target directory (Backend - Maven/Gradle output)
+server/target/
+server/out/
+server/build/
+
+
+# Ignore IntelliJ IDEA project-specific files
+.idea/
+*.iml
+*.ipr
+
+# Ignore IDE-specific files
+.vscode/
+*.swp
+*.swo
+
+# Ignore IntelliJ IDEA artifacts
+out/
+*.log
+
+# Ignore other potential folders
+bin/
+tmp/
+
+# Ignore class files (Java)
+*.class
+
+# Ignore Maven specific files
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Ignore Gradle specific files
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Ignore Eclipse project files
+.classpath
+.project
+.settings/
+
+# Ignore macOS specific files
+*.DS_Store
+
+# Ignore Windows specific files
+Thumbs.db
+Desktop.ini

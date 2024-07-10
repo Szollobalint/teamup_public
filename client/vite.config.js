@@ -8,5 +8,6 @@ export default defineConfig({
         proxy: {
             "/api": "http://backend:8080",
         },
+        host: "0.0.0.0"
     }
 })
