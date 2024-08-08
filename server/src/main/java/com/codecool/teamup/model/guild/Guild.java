@@ -17,6 +17,7 @@ public class Guild {
     @Column(nullable = false, unique = true)
     private String guildName;
 
+    @Column(length = 2048)
     private String guildBadge;
 
     @OneToOne

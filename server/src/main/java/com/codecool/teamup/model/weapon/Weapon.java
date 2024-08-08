@@ -14,6 +14,7 @@ public class Weapon {
 
     private String name;
 
+    @Column(length = 2048)
     private String image;
 
 //  mappedBy attribute indicates the field in the User Entity, that owns the relationship

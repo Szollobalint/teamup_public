@@ -3,7 +3,6 @@ package com.codecool.teamup.configuration;
 import com.codecool.teamup.security.jwt.AuthEntryPointJwt;
 import com.codecool.teamup.security.jwt.AuthTokenFilter;
 import com.codecool.teamup.security.jwt.JwtUtils;
-import jakarta.servlet.Filter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
