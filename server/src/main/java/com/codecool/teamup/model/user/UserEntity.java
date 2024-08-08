@@ -1,49 +1,93 @@
 package com.codecool.teamup.model.user;
 
 import com.codecool.teamup.model.guild.Guild;
+import com.codecool.teamup.model.role.RoleEntity;
 import com.codecool.teamup.model.weapon.Weapon;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Fetch;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
+    @Setter
     private Long id;
 
+    @Getter
+    @Setter
+    private UUID publicId;
+
     @Column(nullable = false, unique = true)
+    @Getter
+    @Setter
     private String username;
 
     @Column(nullable = false)
+    @Getter
+    @Setter
     private String password;
 
     @Column(unique = true)
+    @Getter
+    @Setter
     private String email;
 
+    @Getter
+    @Setter
     private LocalDate birthdate;
 
+    @Getter
+    @Setter
     private String title;
 
+    @Getter
+    @Setter
     private int level;
 
+    @Column(length = 2048)
+    @Getter
+    @Setter
     private String image;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Weapon> weapons;
+    @Getter
+    @Setter
+    private List<Weapon> weapons = new ArrayList<>();
 
-    private String role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "roles_users",
+            joinColumns = @JoinColumn(name = "users_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id")
+    )
+    @Getter
+    @Setter
+    private List<RoleEntity> roles = new ArrayList<>();
 
     @ManyToOne
     @JsonIgnore
+    @Getter
+    @Setter
     private Guild guild;
 
-    public UserEntity(String username, String password, String email, LocalDate birthdate, String title,
-                      int level, String image, String role) {
+    @PrePersist
+    public void prePersist() {
+        if (publicId == null) {
+            publicId = UUID.randomUUID();
+        }
+    }
+
+    public UserEntity(String username, String password, String email, LocalDate birthdate, String title, int level, String image, Guild guild) {
+        this.publicId = UUID.randomUUID();
         this.username = username;
         this.password = password;
         this.email = email;
@@ -51,97 +95,10 @@ public class UserEntity {
         this.title = title;
         this.level = level;
         this.image = image;
-        this.role = role;
+        this.guild = guild;
     }
 
     public UserEntity() {
     }
 
-    public List<Weapon> getWeapons() {
-        return weapons;
-    }
-
-    public void setWeapons(List<Weapon> weapons) {
-        this.weapons = weapons;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public LocalDate getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(LocalDate birthDate) {
-        this.birthdate = birthDate;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public Guild getGuild() {
-        return guild;
-    }
-
-    public void setGuild(Guild guild) {
-        this.guild = guild;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 }

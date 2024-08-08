@@ -30,6 +30,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -58,7 +59,6 @@ public class UserService {
         newUser.setImage(user.image());
         newUser.setLevel(user.level());
         newUser.setTitle(user.title());
-        newUser.setRole(String.valueOf(Role.ROLE_USER));
         userRepository.save(newUser);
         return "User registered successfully";
     }

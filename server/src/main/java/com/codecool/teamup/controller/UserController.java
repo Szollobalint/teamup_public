@@ -2,15 +2,14 @@ package com.codecool.teamup.controller;
 
 import com.codecool.teamup.model.JwtResponse;
 import com.codecool.teamup.model.request.LoginRequest;
+import com.codecool.teamup.model.user.NewUserDTO;
 import com.codecool.teamup.model.user.UserDTO;
 import com.codecool.teamup.model.user.UserEntity;
-import com.codecool.teamup.model.user.NewUserDTO;
 import com.codecool.teamup.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")

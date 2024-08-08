@@ -20,6 +20,7 @@ public class Feedback {
 
     private int userLevel;
 
+    @Column(length = 2048)
     private String userImage;
 
     private String feedbackText;
