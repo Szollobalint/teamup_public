@@ -2,6 +2,7 @@
 .idea/
 *.iml
 *.iws
+.env
 
 # Ignore Node.js dependencies (Frontend)
 client/node_modules/
@@ -20,7 +21,6 @@ client/dist/
 # Ignore environment variables
 server/.env
 client/.env
-server/.env
 
 # Ignore logs
 *.log
