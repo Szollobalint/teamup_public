@@ -9,11 +9,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5433:5432"
+      - "5440:5432"
 
   backend:
     image: teamup:latest
-    container_name: backend2
+    container_name: backend
     depends_on:
       - postgres
     environment:
