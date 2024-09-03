@@ -25,7 +25,7 @@ Run the application:
 docker compose up
 ```
 
-### 4. Access the Application
+### 3. Access the Application
    Open your web browser and go to http://localhost:5173
 
 1. Register an Account
@@ -33,7 +33,7 @@ docker compose up
    Fill in your details and create an account.
 
    
-### 5. Technologies Used
+### 4. Technologies Used
 
 1. Backend:
 
@@ -54,6 +54,7 @@ docker compose up
 - **PostgreSQL**
 - **H2**
 
-### 6. Contact Information
+### 5. Contact Information
 For support or inquiries, please contact:
 - **Email: pzsombor.dev@gmail.com**
+- **Email: szollosybalint24@gmail.com**
