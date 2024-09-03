@@ -56,5 +56,4 @@ docker compose up
 
 ### 5. Contact Information
 For support or inquiries, please contact:
-- **Email: pzsombor.dev@gmail.com**
 - **Email: szollosybalint24@gmail.com**
